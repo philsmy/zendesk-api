@@ -13,11 +13,12 @@ module Zendesk
       else
         @format = 'xml'
       end
+      @zd_domain = options[:zd_domain] ? options[:zd_domain] : "zendesk.com"
     end
 
     def main_url
       url_prefix    = @options[:ssl] ? "https://" : "http://"
-      url_postfix   = ".zendesk.com/"
+      url_postfix   = ".#{@zd_domain}/"
       url = url_prefix + @account + url_postfix
     end
 

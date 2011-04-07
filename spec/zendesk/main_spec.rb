@@ -17,6 +17,11 @@ describe Zendesk::Main, "basic" do
     @zendesk = Zendesk::Main.new(@account, @username, @password, :ssl => true)
     @zendesk.main_url.should == "https://#{@account}.zendesk.com/"
   end
+  
+  it "should have the correct main_url with zd_domain option" do
+    @zendesk = Zendesk::Main.new(@account, @username, @password, :zd_domain => "shopkeep.com")
+    @zendesk.main_url.should == "http://#{@account}.shopkeep.com/"
+  end
 end
 
 describe Zendesk::Main, 'make_request' do
