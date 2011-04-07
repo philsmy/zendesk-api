@@ -9,11 +9,11 @@ describe Zendesk::Main, "basic" do
     @zendesk = Zendesk::Main.new(@account, @username, @password)
   end
 
-  it "should have the correct mail_url with no ssl options" do
+  it "should have the correct main_url with no ssl options" do
     @zendesk.main_url.should == "http://#{@account}.zendesk.com/"
   end
 
-  it "should have the correct mail_url with ssl options" do
+  it "should have the correct main_url with ssl options" do
     @zendesk = Zendesk::Main.new(@account, @username, @password, :ssl => true)
     @zendesk.main_url.should == "https://#{@account}.zendesk.com/"
   end
